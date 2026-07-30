@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TB Electrical | Local Electricians &mdash; Domestic &amp; Commercial</title>
+<meta name="description" content="TB Electrical: fully insured, NAPIT registered electricians. Domestic, commercial and emergency electrical work. Get a fixed price in 24 hours.">
+
+<!-- Fonts: Archivo (headings) + Inter (body) — substitutes; swap if real brand fonts are supplied -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons: Lucide (static, via CDN) — substitute icon set; swap if TB Electrical has a preferred set -->
+<script src="https://unpkg.com/lucide-static@latest/font/lucide.css" defer></script>
+
+<style>
+  :root {
+    /* Color tokens */
+    --color-navy: #102A43;
+    --color-navy-700: #0C2033;
+    --color-amber: #FFBC00;
+    --color-amber-600: #E6A800;
+    --color-warm-white: #FAFAF7;
+    --color-slate: #52606D;
+    --color-slate-300: #C4CDD5;
+    --color-pale-blue: #E8EEF3;
+    --color-border-default: #C4CDD5;
+    --color-border-alt: #E8EEF3;
+    --color-success: #4C8B62;
+    --color-error: #B54545;
+
+    /* Type */
+    --font-heading: "Archivo", "Arial Black", sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing (8px scale) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+    --space-6: 48px;
+    --space-8: 64px;
+    --space-10: 80px;
+    --space-12: 96px;
+
+    /* Shape / elevation */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --shadow-sm: 0 1px 3px rgba(16, 42, 67, 0.08);
+    --shadow-md: 0 4px 16px rgba(16, 42, 67, 0.10);
+
+    --transition-fast: 150ms ease-out;
+    --transition-base: 200ms ease-out;
+
+    --content-max: 1200px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-navy);
+    background: var(--color-warm-white);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: var(--color-navy);
+    line-height: 1.15;
+    margin: 0 0 var(--space-2);
+  }
+
+  p { margin: 0 0 var(--space-2); color: var(--color-slate); }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .container {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 var(--space-3);
+  }
+
+  .section {
+    padding: var(--space-10) 0;
+  }
+  @media (min-width: 900px) {
+    .section { padding: var(--space-12) 0; }
+  }
+  .section--alt { background: var(--color-pale-blue); }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    background: rgba(255, 188, 0, 0.18);
+    border: 1px solid var(--color-amber);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-2);
+  }
+
+  .section-head {
+    max-width: 640px;
+    margin: 0 auto var(--space-6);
+    text-align: center;
+  }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p { font-size: 1.05rem; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 13px 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+    white-space: nowrap;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn-primary {
+    background: var(--color-amber);
+    color: var(--color-navy);
+  }
+  .btn-primary:hover { background: var(--color-amber-600); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-navy);
+    border-color: var(--color-navy);
+  }
+  .btn-secondary:hover { background: var(--color-navy); color: var(--color-warm-white); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-warm-white);
+    border-color: rgba(250, 250, 247, 0.5);
+  }
+  .btn-ghost:hover { background: rgba(250, 250, 247, 0.12); }
+  .btn-block { width: 100%; }
+  .btn:focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-warm-white);
+    border-bottom: 1px solid var(--color-border-alt);
+  }
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+  }
+  .main-nav ul {
+    display: flex;
+    gap: var(--space-4);
+  }
+  .main-nav a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-navy);
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-fast);
+  }
+  .main-nav a:hover { border-color: var(--color-amber); }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .header-call {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-navy);
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-sm);
+  }
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--color-navy);
+    position: relative;
+  }
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: var(--color-navy);
+    transition: transform var(--transition-fast);
+  }
+  .nav-toggle span::before { top: -6px; }
+  .nav-toggle span::after { top: 6px; }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-3) var(--space-4);
+    border-top: 1px solid var(--color-border-alt);
+    background: var(--color-warm-white);
+  }
+  .mobile-nav.is-open { display: flex; }
+  .mobile-nav a {
+    font-weight: 600;
+    padding: 10px 4px;
+    border-bottom: 1px solid var(--color-border-alt);
+  }
+
+  @media (min-width: 900px) {
+    .main-nav { display: block; }
+    .header-call { display: inline-flex; }
+    .nav-toggle { display: none; }
+    .mobile-nav { display: none !important; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(155deg, var(--color-navy) 0%, var(--color-navy-700) 100%);
+    color: var(--color-warm-white);
+    padding: var(--space-10) 0;
+  }
+  @media (min-width: 900px) { .hero { padding: var(--space-12) 0; } }
+  .hero .container {
+    display: grid;
+    gap: var(--space-6);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero .container { grid-template-columns: 1.1fr 0.9fr; }
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    background: var(--color-amber);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-2);
+  }
+  .hero h1 {
+    color: var(--color-warm-white);
+    font-size: clamp(2rem, 5vw, 3rem);
+    max-width: 16ch;
+  }
+  .hero p.lede {
+    color: var(--color-pale-blue);
+    font-size: 1.15rem;
+    max-width: 46ch;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+    font-size: 0.85rem;
+    color: var(--color-pale-blue);
+  }
+  .hero-trust li { display: flex; align-items: center; gap: 6px; }
+  .hero-trust .i { color: var(--color-amber); }
+
+  .hero-visual {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    background: repeating-linear-gradient(135deg, rgba(255,188,0,0.10), rgba(255,188,0,0.10) 12px, rgba(250,250,247,0.04) 12px, rgba(250,250,247,0.04) 24px);
+    border: 1px dashed rgba(250, 250, 247, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-pale-blue);
+    font-size: 0.85rem;
+    padding: var(--space-3);
+  }
+
+  /* ---------- Services ---------- */
+  .services-grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .card {
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-3);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+  }
+  .card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+  .service-card .icon-badge {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-pale-blue);
+    border-radius: var(--radius-md);
+    color: var(--color-navy);
+    margin-bottom: var(--space-2);
+    font-size: 1.2rem;
+  }
+  .service-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+  .service-card p { font-size: 0.92rem; margin-bottom: var(--space-1); }
+  .service-card a.card-link {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--color-navy);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid var(--color-amber);
+  }
+
+  /* ---------- Portfolio ---------- */
+  .portfolio-grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .portfolio-item {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border-default);
+    background: var(--color-warm-white);
+    box-shadow: var(--shadow-sm);
+  }
+  .portfolio-photo {
+    aspect-ratio: 4 / 3;
+    background: var(--color-pale-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-slate);
+    font-size: 0.82rem;
+    padding: var(--space-2);
+    border-bottom: 1px solid var(--color-border-alt);
+  }
+  .portfolio-body { padding: var(--space-2) var(--space-3) var(--space-3); }
+  .portfolio-body h3 { font-size: 1.02rem; margin-bottom: 4px; }
+  .portfolio-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    background: var(--color-pale-blue);
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+  }
+
+  /* ---------- Accreditations ---------- */
+  .accreditations-grid {
+    display: grid;
+    gap: var(--space-2);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 640px) { .accreditations-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .accreditation-badge {
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-2);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .accreditation-badge .icon-badge {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--space-1);
+    border-radius: 999px;
+    background: var(--color-pale-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-navy);
+    font-size: 1.3rem;
+  }
+  .accreditation-badge h4 { font-size: 0.92rem; margin-bottom: 2px; }
+  .accreditation-badge p { font-size: 0.78rem; margin: 0; }
+
+  /* ---------- Reviews ---------- */
+  .reviews-grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .review-card {
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .review-stars { color: var(--color-amber); font-size: 0.95rem; letter-spacing: 2px; }
+  .review-card p.review-body { font-size: 0.92rem; color: var(--color-navy); }
+  .review-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--color-slate);
+    margin-top: auto;
+    padding-top: var(--space-1);
+    border-top: 1px solid var(--color-border-alt);
+  }
+  .review-meta strong { color: var(--color-navy); }
+
+  .reviews-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+  .reviews-score {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--color-navy);
+  }
+  .reviews-summary .review-stars { font-size: 1.2rem; }
+
+  .reviews-cta { text-align: center; margin-top: var(--space-4); }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .contact-grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+  }
+
+  .contact-info h3 { font-size: 1.05rem; margin-top: var(--space-3); }
+  .contact-info .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: var(--space-2);
+    font-size: 0.95rem;
+  }
+  .contact-info .i {
+    color: var(--color-amber);
+    width: 22px;
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-4);
+  }
+  .form-row {
+    display: grid;
+    gap: var(--space-2);
+    grid-template-columns: 1fr;
+    margin-bottom: var(--space-2);
+  }
+  @media (min-width: 560px) {
+    .form-row.two-col { grid-template-columns: 1fr 1fr; }
+  }
+  .field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--color-navy);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 11px 12px;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-sm);
+    background: var(--color-warm-white);
+    color: var(--color-navy);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--color-amber);
+    box-shadow: 0 0 0 3px rgba(255, 188, 0, 0.25);
+  }
+  .field-note { font-size: 0.78rem; color: var(--color-slate); margin-top: var(--space-1); }
+
+  .form-status {
+    display: none;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    margin-bottom: var(--space-2);
+  }
+  .form-status.is-visible { display: block; }
+  .form-status.success { background: rgba(76, 139, 98, 0.12); color: var(--color-success); border: 1px solid var(--color-success); }
+  .form-status.error { background: rgba(181, 69, 69, 0.12); color: var(--color-error); border: 1px solid var(--color-error); }
+
+  /* ---------- Quote band ---------- */
+  .quote-band {
+    background: var(--color-amber);
+    color: var(--color-navy);
+    padding: var(--space-6) 0;
+    text-align: center;
+  }
+  .quote-band h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+  .quote-band p { color: var(--color-navy-700); max-width: 44ch; margin: 0 auto var(--space-3); }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    background: var(--color-navy);
+    color: var(--color-pale-blue);
+    padding: var(--space-8) 0 var(--space-4);
+  }
+  .footer-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(250, 250, 247, 0.15);
+  }
+  @media (min-width: 720px) { .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; } }
+  .footer-grid h4 {
+    color: var(--color-warm-white);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-2);
+  }
+  .footer-grid ul li { margin-bottom: 8px; font-size: 0.9rem; }
+  .footer-grid a:hover { color: var(--color-amber); }
+  .footer-logo { margin-bottom: var(--space-2); }
+  .footer-logo-img { height: 40px; width: auto; display: block; }
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+    font-size: 0.8rem;
+    color: rgba(250, 250, 247, 0.6);
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .placeholder-note {
+    font-size: 0.72rem;
+    color: var(--color-slate);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="TB Electrical home">
+      <img src="assets/logo/tb-electrical-logo.png" alt="TB Electrical" class="logo-img">
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Our work</a></li>
+        <li><a href="#accreditations">Accreditations</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-call" href="tel:+441234567890">
+        <span class="i" aria-hidden="true">&#9742;</span> 01234 567890
+      </a>
+      <a class="btn btn-primary" href="#contact">Request a quote</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Our work</a>
+    <a href="#accreditations">Accreditations</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+441234567890">Call 01234 567890</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="hero-eyebrow">Local &amp; NAPIT registered</span>
+        <h1>Straightforward electrical work, done properly.</h1>
+        <p class="lede">Domestic, commercial and emergency callouts from a local team. Fully insured, no jargon, no surprises on the invoice.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Request a quote</a>
+          <a class="btn btn-ghost" href="tel:+441234567890">Call now</a>
+        </div>
+        <ul class="hero-trust">
+          <li><span class="i">&#9889;</span> Fully insured &amp; NAPIT registered</li>
+          <li><span class="i">&#9889;</span> Fixed price in 24 hours</li>
+          <li><span class="i">&#9889;</span> No call-out charge for local jobs</li>
+        </ul>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        Photo placeholder &mdash; add a photo of your team, van, or recent job here
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Services</span>
+        <h2>What we can help with</h2>
+        <p>From a single faulty socket to a full rewire &mdash; straight answers and fair, fixed pricing.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="card service-card reveal">
+          <div class="icon-badge" aria-hidden="true">&#9889;</div>
+          <h3>Domestic electrical</h3>
+          <p>Rewires, socket &amp; lighting additions, consumer unit upgrades, and general home electrics.</p>
+          <a class="card-link" href="#contact">Get a quote &rarr;</a>
+        </div>
+
+        <div class="card service-card reveal">
+          <div class="icon-badge" aria-hidden="true">&#127970;</div>
+          <h3>Commercial electrical</h3>
+          <p>Office, retail and small industrial units &mdash; installations, upgrades and compliance testing.</p>
+          <a class="card-link" href="#contact">Get a quote &rarr;</a>
+        </div>
+
+        <div class="card service-card reveal">
+          <div class="icon-badge" aria-hidden="true">&#128680;</div>
+          <h3>Emergency callouts</h3>
+          <p>Faulty socket or a tripping circuit? We'll have someone out today &mdash; no call-out charge locally.</p>
+          <a class="card-link" href="tel:+441234567890">Call now &rarr;</a>
+        </div>
+
+        <div class="card service-card reveal">
+          <div class="icon-badge" aria-hidden="true">&#128268;</div>
+          <h3>EV charger installation</h3>
+          <p>Home and workplace EV charge points, fitted safely and certified.</p>
+          <a class="card-link" href="#contact">Get a quote &rarr;</a>
+        </div>
+
+        <div class="card service-card reveal">
+          <div class="icon-badge" aria-hidden="true">&#128161;</div>
+          <h3>Lighting</h3>
+          <p>Indoor and outdoor lighting design and installation, including energy-efficient upgrades.</p>
+          <a class="card-link" href="#contact">Get a quote &rarr;</a>
+        </div>
+
+        <div class="card service-card reveal">
+          <div class="icon-badge" aria-hidden="true">&#128203;</div>
+          <h3>Testing &amp; inspection</h3>
+          <p>EICR reports, PAT testing and landlord safety certificates.</p>
+          <a class="card-link" href="#contact">Get a quote &rarr;</a>
+        </div>
+
+      </div>
+      <p class="placeholder-note" style="text-align:center; margin-top: var(--space-3);">Placeholder service list &mdash; swap in your real services and pricing approach.</p>
+    </div>
+  </section>
+
+  <!-- ============ PORTFOLIO ============ -->
+  <section class="section section--alt" id="portfolio">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our work</span>
+        <h2>Recent jobs</h2>
+        <p>A selection of domestic and commercial work &mdash; replace these placeholders with photos from your own jobs.</p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Domestic</span>
+            <h3>Full house rewire</h3>
+            <p>Three-bedroom semi, complete rewire and consumer unit upgrade.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Commercial</span>
+            <h3>Retail unit fit-out</h3>
+            <p>Full electrical fit-out for a new high street retail unit.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Domestic</span>
+            <h3>EV charger install</h3>
+            <p>Home EV charge point installation and certification.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Domestic</span>
+            <h3>Kitchen lighting upgrade</h3>
+            <p>Energy-efficient LED lighting scheme for a kitchen renovation.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Commercial</span>
+            <h3>Office EICR &amp; remedial work</h3>
+            <p>Full inspection report followed by remedial electrical work.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Domestic</span>
+            <h3>Garden &amp; outdoor lighting</h3>
+            <p>Weatherproof outdoor lighting and outbuilding power supply.</p>
+          </div>
+        </div>
+
+      </div>
+      <p class="placeholder-note" style="text-align:center; margin-top: var(--space-3);">Placeholder portfolio &mdash; swap these for real job photos and descriptions.</p>
+    </div>
+  </section>
+
+  <!-- ============ ACCREDITATIONS ============ -->
+  <section class="section" id="accreditations">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Accreditations</span>
+        <h2>Fully insured, properly qualified</h2>
+        <p>Credentials shown below are placeholders &mdash; confirm your registrations and insurer, then swap in the real logos.</p>
+      </div>
+
+      <div class="accreditations-grid">
+        <div class="accreditation-badge reveal">
+          <div class="icon-badge">&#9989;</div>
+          <h4>NAPIT registered</h4>
+          <p>Placeholder &mdash; confirm registration number</p>
+        </div>
+        <div class="accreditation-badge reveal">
+          <div class="icon-badge">&#128737;</div>
+          <h4>Fully insured</h4>
+          <p>Placeholder &mdash; confirm insurer &amp; cover level</p>
+        </div>
+        <div class="accreditation-badge reveal">
+          <div class="icon-badge">&#127942;</div>
+          <h4>Trustmark approved</h4>
+          <p>Placeholder &mdash; confirm if applicable</p>
+        </div>
+        <div class="accreditation-badge reveal">
+          <div class="icon-badge">&#128221;</div>
+          <h4>Part P compliant</h4>
+          <p>Placeholder &mdash; confirm certifying body</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUOTE BAND ============ -->
+  <section class="quote-band">
+    <div class="container">
+      <h2>Get a fixed price in 24 hours.</h2>
+      <p>Tell us what you need and we'll come back with a straight answer &mdash; no jargon, no surprises on the invoice.</p>
+      <a class="btn btn-secondary" href="#contact" style="background:var(--color-navy); color:var(--color-warm-white); border-color:var(--color-navy);">Request a quote</a>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section section--alt" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Reviews</span>
+        <h2>What local customers say</h2>
+        <p>A few recent reviews &mdash; replace with your real Google reviews, or connect a live feed later.</p>
+      </div>
+
+      <div class="reviews-summary reveal">
+        <span class="reviews-score">4.9</span>
+        <div>
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p style="margin:0; font-size:0.85rem;">Placeholder rating &mdash; based on X Google reviews</p>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-body">"Out the same day for a tripping circuit, fixed it properly and explained exactly what had gone wrong. No jargon, fair price."</p>
+          <div class="review-meta"><strong>Placeholder name</strong><span>Google review</span></div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-body">"Rewired our whole house. Tidy work, turned up when they said they would, and the quote didn't change halfway through."</p>
+          <div class="review-meta"><strong>Placeholder name</strong><span>Google review</span></div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-body">"Fitted our EV charger quickly and sorted the certification without any chasing. Would use again."</p>
+          <div class="review-meta"><strong>Placeholder name</strong><span>Google review</span></div>
+        </div>
+      </div>
+
+      <div class="reviews-cta reveal">
+        <a class="btn btn-secondary" href="https://www.google.com/search?q=TB+Electrical+reviews" target="_blank" rel="noopener">See all reviews on Google &rarr;</a>
+        <p class="placeholder-note" style="margin-top: var(--space-2);">Placeholder reviews &mdash; replace with real customer reviews and link this to your actual Google Business Profile.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Request a quote</h2>
+        <p>Tell us a bit about the job and we'll get back to you with a fixed price.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <h3>Get in touch</h3>
+          <div class="contact-row"><span class="i">&#9742;</span><span>01234 567890 <span class="placeholder-note">(placeholder &mdash; add real number)</span></span></div>
+          <div class="contact-row"><span class="i">&#9993;</span><span>tyler@tbelectrical.co.uk</span></div>
+          <div class="contact-row"><span class="i">&#128205;</span><span>Serving [your town/region] <span class="placeholder-note">(placeholder &mdash; add service area)</span></span></div>
+          <div class="contact-row"><span class="i">&#128337;</span><span>Mon&ndash;Fri, 8am&ndash;6pm &mdash; emergency callouts available <span class="placeholder-note">(placeholder &mdash; confirm hours)</span></span></div>
+
+          <h3>Prefer to call?</h3>
+          <a class="btn btn-primary btn-block" href="tel:+441234567890" style="margin-top: var(--space-1);">Call 01234 567890</a>
+        </div>
+
+        <form class="contact-form reveal" id="quoteForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-status" id="formStatus" role="status"></div>
+
+          <div class="form-row two-col">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="Domestic electrical">Domestic electrical</option>
+                <option value="Commercial electrical">Commercial electrical</option>
+                <option value="Emergency callout">Emergency callout</option>
+                <option value="EV charger installation">EV charger installation</option>
+                <option value="Lighting">Lighting</option>
+                <option value="Testing & inspection">Testing &amp; inspection</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="message">Tell us about the job</label>
+              <textarea id="message" name="message" required placeholder="e.g. Faulty socket in kitchen, need someone out this week"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="formSubmit">Request a quote</button>
+          <p class="field-note">We aim to reply with a fixed price within 24 hours.</p>
+          <p class="field-note placeholder-note">Setup needed: this form posts to Formspree. Create a free form at formspree.io, then replace <code>YOUR_FORM_ID</code> in the form's <code>action</code> attribute with your real endpoint.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="assets/logo/tb-electrical-logo.png" alt="TB Electrical" class="footer-logo-img"></div>
+        <p style="color: rgba(250,250,247,0.75); font-size:0.9rem; max-width: 34ch;">Local electricians for domestic and commercial work. Fully insured, straightforward, no surprises.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Our work</a></li>
+          <li><a href="#accreditations">Accreditations</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441234567890">01234 567890</a></li>
+          <li><a href="mailto:tyler@tbelectrical.co.uk">tyler@tbelectrical.co.uk</a></li>
+          <li>Serving [your town/region]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> TB Electrical. All rights reserved.</span>
+      <span>Fully insured &amp; NAPIT registered (placeholder &mdash; confirm)</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  var navToggle = document.getElementById("navToggle");
+  var mobileNav = document.getElementById("mobileNav");
+
+  navToggle.addEventListener("click", function () {
+    var isOpen = mobileNav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  mobileNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  // Contact form submission (Formspree — AJAX so we can show inline success/error)
+  var form = document.getElementById("quoteForm");
+  var statusBox = document.getElementById("formStatus");
+  var submitBtn = document.getElementById("formSubmit");
+
+  function showStatus(type, message) {
+    statusBox.textContent = message;
+    statusBox.className = "form-status is-visible " + type;
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
+      showStatus("error", "Form isn't connected yet — replace YOUR_FORM_ID in the form action with your real Formspree endpoint.");
+      return;
+    }
+
+    var data = new FormData(form);
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          showStatus("success", "Thanks — your message has been sent. We'll be in touch with a fixed price within 24 hours.");
+          form.reset();
+        } else {
+          return response.json().then(function (body) {
+            var msg = (body && body.errors && body.errors.length) ? body.errors.map(function (e) { return e.message; }).join(", ") : "Something went wrong sending your message. Please call us instead.";
+            showStatus("error", msg);
+          });
+        }
+      })
+      .catch(function () {
+        showStatus("error", "Something went wrong sending your message. Please call us instead.");
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Request a quote";
+      });
+  });
+})();
+</script>
+
+</body>
+</html>

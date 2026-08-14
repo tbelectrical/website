@@ -11,8 +11,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Icons: Lucide (static, via CDN) — substitute icon set; swap if TB Electrical has a preferred set -->
-<script src="https://unpkg.com/lucide-static@latest/font/lucide.css" defer></script>
+<!-- Icons: Lucide, inlined as SVG (no CDN dependency) -->
+
+<!-- Favicon / app icons -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
+<meta name="theme-color" content="#102A43">
+
+<!-- Social sharing (WhatsApp, Facebook, iMessage) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TB Electrical">
+<meta property="og:title" content="TB Electrical | Local Electricians — Domestic &amp; Commercial">
+<meta property="og:description" content="NAPIT and TrustMark registered electricians covering Hertfordshire, Bedfordshire and surrounding areas. EICRs, fault finding, rewires, EV chargers and emergency lighting.">
+<meta property="og:image" content="assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
 <style>
   :root {
@@ -323,18 +338,31 @@
   .hero-trust .i { color: var(--color-amber); }
 
   .hero-visual {
-    aspect-ratio: 4 / 3;
     border-radius: var(--radius-lg);
-    background: repeating-linear-gradient(135deg, rgba(255,188,0,0.10), rgba(255,188,0,0.10) 12px, rgba(250,250,247,0.04) 12px, rgba(250,250,247,0.04) 24px);
-    border: 1px dashed rgba(250, 250, 247, 0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--color-pale-blue);
-    font-size: 0.85rem;
-    padding: var(--space-3);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(250, 250, 247, 0.18);
   }
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  /* ---------- Inline Lucide icons ---------- */
+  .i-svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .i-svg-sm { width: 16px; height: 16px; }
+  .i-svg-lg { width: 24px; height: 24px; }
 
   /* ---------- Services ---------- */
   .services-grid {
@@ -396,17 +424,18 @@
     box-shadow: var(--shadow-sm);
   }
   .portfolio-photo {
-    aspect-ratio: 4 / 3;
     background: var(--color-pale-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--color-slate);
-    font-size: 0.82rem;
-    padding: var(--space-2);
     border-bottom: 1px solid var(--color-border-alt);
+    overflow: hidden;
   }
+  .portfolio-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+  }
+  .portfolio-item:hover .portfolio-photo img { transform: scale(1.03); }
   .portfolio-body { padding: var(--space-2) var(--space-3) var(--space-3); }
   .portfolio-body h3 { font-size: 1.02rem; margin-bottom: 4px; }
   .portfolio-tag {
@@ -448,7 +477,12 @@
     align-items: center;
     justify-content: center;
     color: var(--color-navy);
-    font-size: 1.3rem;
+  }
+  .accreditation-badge .logo-mark {
+    height: 64px;
+    width: auto;
+    margin: 0 auto var(--space-1);
+    object-fit: contain;
   }
   .accreditation-badge h4 { font-size: 0.92rem; margin-bottom: 2px; }
   .accreditation-badge p { font-size: 0.78rem; margin: 0; }
@@ -655,7 +689,7 @@
 
     <div class="header-actions">
       <a class="header-call" href="tel:+447484605599">
-        <span class="i" aria-hidden="true">&#9742;</span> 07484 605599
+        <svg class="i-svg i-svg-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg> 07484 605599
       </a>
       <a class="btn btn-primary" href="#contact">Request a quote</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
@@ -688,13 +722,17 @@
           <a class="btn btn-ghost" href="tel:+447484605599">Call now</a>
         </div>
         <ul class="hero-trust">
-          <li><span class="i">&#9889;</span> Fully insured &amp; NAPIT registered</li>
-          <li><span class="i">&#9889;</span> Fixed price in 24 hours</li>
-          <li><span class="i">&#9889;</span> No call-out charge for local jobs</li>
+          <li><svg class="i-svg i-svg-sm i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></svg> Fully insured &amp; NAPIT registered</li>
+          <li><svg class="i-svg i-svg-sm i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></svg> Fixed price in 24 hours</li>
+          <li><svg class="i-svg i-svg-sm i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></svg> No call-out charge for local jobs</li>
         </ul>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        Photo placeholder &mdash; add a photo of your team, van, or recent job here
+      <div class="hero-visual">
+        <img src="assets/img/hero-van-800.jpg"
+             srcset="assets/img/hero-van-800.jpg 800w, assets/img/hero-van-1600.jpg 1600w"
+             sizes="(min-width: 900px) 45vw, 100vw"
+             width="1600" height="1200"
+             alt="Tyler Baker of TB Electrical standing beside the company van">
       </div>
     </div>
   </section>
@@ -711,35 +749,35 @@
       <div class="services-grid">
 
         <div class="card service-card reveal">
-          <div class="icon-badge" aria-hidden="true">&#128203;</div>
+          <div class="icon-badge" aria-hidden="true"><svg class="i-svg i-svg-lg" viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
           <h3>EICRs</h3>
           <p>Electrical Installation Condition Reports for homes, rentals and small businesses &mdash; clear findings, no jargon.</p>
           <a class="card-link" href="#contact">Get a quote &rarr;</a>
         </div>
 
         <div class="card service-card reveal">
-          <div class="icon-badge" aria-hidden="true">&#128269;</div>
+          <div class="icon-badge" aria-hidden="true"><svg class="i-svg i-svg-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h3>Fault finding</h3>
           <p>Tripping circuits, dead sockets or intermittent faults &mdash; we'll track down the cause and put it right.</p>
           <a class="card-link" href="tel:+447484605599">Call now &rarr;</a>
         </div>
 
         <div class="card service-card reveal">
-          <div class="icon-badge" aria-hidden="true">&#127968;</div>
+          <div class="icon-badge" aria-hidden="true"><svg class="i-svg i-svg-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
           <h3>Rewires</h3>
           <p>Full and partial rewires for homes and let properties, carried out cleanly and to current regs.</p>
           <a class="card-link" href="#contact">Get a quote &rarr;</a>
         </div>
 
         <div class="card service-card reveal">
-          <div class="icon-badge" aria-hidden="true">&#128268;</div>
+          <div class="icon-badge" aria-hidden="true"><svg class="i-svg i-svg-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"/><path d="m2 22 3-3"/><path d="M7.5 13.5 10 11"/><path d="M10.5 16.5 13 14"/><path d="m18 3-4 4h6l-4 4"/></svg></div>
           <h3>EV charger installation</h3>
           <p>Home and workplace EV charge points, fitted safely and certified.</p>
           <a class="card-link" href="#contact">Get a quote &rarr;</a>
         </div>
 
         <div class="card service-card reveal">
-          <div class="icon-badge" aria-hidden="true">&#128680;</div>
+          <div class="icon-badge" aria-hidden="true"><svg class="i-svg i-svg-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
           <h3>Emergency lighting</h3>
           <p>Testing, certification and installation of emergency lighting for landlords and commercial premises.</p>
           <a class="card-link" href="#contact">Get a quote &rarr;</a>
@@ -755,67 +793,102 @@
       <div class="section-head reveal">
         <span class="eyebrow">Our work</span>
         <h2>Recent jobs</h2>
-        <p>A selection of domestic and commercial work &mdash; replace these placeholders with photos from your own jobs.</p>
+        <p>A selection of recent domestic and commercial work.</p>
       </div>
 
       <div class="portfolio-grid">
 
         <div class="portfolio-item reveal">
-          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-photo">
+            <img src="assets/img/portfolio/domestic-lighting-400.jpg"
+                 srcset="assets/img/portfolio/domestic-lighting-400.jpg 400w, assets/img/portfolio/domestic-lighting-800.jpg 800w"
+                 sizes="(min-width: 1000px) 30vw, (min-width: 640px) 45vw, 100vw"
+                 width="800" height="800" loading="lazy"
+                 alt="Living room with pendant light, cove lighting and illuminated display cabinets">
+          </div>
           <div class="portfolio-body">
             <span class="portfolio-tag">Domestic</span>
-            <h3>Full house rewire</h3>
-            <p>Three-bedroom semi, complete rewire and consumer unit upgrade.</p>
+            <h3>Living room lighting scheme</h3>
+            <p>Pendant, concealed cove lighting and lit display cabinets as part of a full room refurbishment.</p>
           </div>
         </div>
 
         <div class="portfolio-item reveal">
-          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-photo">
+            <img src="assets/img/portfolio/ev-charger-400.jpg"
+                 srcset="assets/img/portfolio/ev-charger-400.jpg 400w, assets/img/portfolio/ev-charger-800.jpg 800w"
+                 sizes="(min-width: 1000px) 30vw, (min-width: 640px) 45vw, 100vw"
+                 width="800" height="800" loading="lazy"
+                 alt="Wall-mounted home EV charge point installed on a brick wall">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Domestic</span>
+            <h3>EV charger installation</h3>
+            <p>Home charge point mounted, wired back to the supply and certified.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">
+            <img src="assets/img/portfolio/commercial-consumer-unit-400.jpg"
+                 srcset="assets/img/portfolio/commercial-consumer-unit-400.jpg 400w, assets/img/portfolio/commercial-consumer-unit-800.jpg 800w"
+                 sizes="(min-width: 1000px) 30vw, (min-width: 640px) 45vw, 100vw"
+                 width="800" height="800" loading="lazy"
+                 alt="Commercial distribution board with galvanised trunking and conduit runs">
+          </div>
           <div class="portfolio-body">
             <span class="portfolio-tag">Commercial</span>
-            <h3>Retail unit fit-out</h3>
-            <p>Full electrical fit-out for a new high street retail unit.</p>
+            <h3>Distribution board &amp; containment</h3>
+            <p>New board installed with galvanised trunking and conduit runs kept square and accessible.</p>
           </div>
         </div>
 
         <div class="portfolio-item reveal">
-          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-photo">
+            <img src="assets/img/portfolio/eicr-testing-400.jpg"
+                 srcset="assets/img/portfolio/eicr-testing-400.jpg 400w, assets/img/portfolio/eicr-testing-800.jpg 800w"
+                 sizes="(min-width: 1000px) 30vw, (min-width: 640px) 45vw, 100vw"
+                 width="800" height="800" loading="lazy"
+                 alt="Megger multifunction tester in use on an open distribution board">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Testing</span>
+            <h3>Inspection &amp; testing</h3>
+            <p>Circuit-by-circuit testing and certification as part of an Electrical Installation Condition Report.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal">
+          <div class="portfolio-photo">
+            <img src="assets/img/portfolio/domestic-consumer-unit-400.jpg"
+                 srcset="assets/img/portfolio/domestic-consumer-unit-400.jpg 400w, assets/img/portfolio/domestic-consumer-unit-800.jpg 800w"
+                 sizes="(min-width: 1000px) 30vw, (min-width: 640px) 45vw, 100vw"
+                 width="800" height="800" loading="lazy"
+                 alt="Two new domestic consumer units installed in a cupboard">
+          </div>
           <div class="portfolio-body">
             <span class="portfolio-tag">Domestic</span>
-            <h3>EV charger install</h3>
-            <p>Home EV charge point installation and certification.</p>
+            <h3>Consumer unit upgrade</h3>
+            <p>Two new boards fitted, tested and certified, bringing the installation up to current regs.</p>
           </div>
         </div>
 
         <div class="portfolio-item reveal">
-          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
+          <div class="portfolio-photo">
+            <img src="assets/img/portfolio/shed-supply-sockets-400.jpg"
+                 srcset="assets/img/portfolio/shed-supply-sockets-400.jpg 400w, assets/img/portfolio/shed-supply-sockets-800.jpg 800w"
+                 sizes="(min-width: 1000px) 30vw, (min-width: 640px) 45vw, 100vw"
+                 width="800" height="800" loading="lazy"
+                 alt="Double socket fitted inside a garden shed">
+          </div>
           <div class="portfolio-body">
             <span class="portfolio-tag">Domestic</span>
-            <h3>Kitchen lighting upgrade</h3>
-            <p>Energy-efficient LED lighting scheme for a kitchen renovation.</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal">
-          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
-          <div class="portfolio-body">
-            <span class="portfolio-tag">Commercial</span>
-            <h3>Office EICR &amp; remedial work</h3>
-            <p>Full inspection report followed by remedial electrical work.</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item reveal">
-          <div class="portfolio-photo">Photo placeholder &mdash; before/after or in-progress shot</div>
-          <div class="portfolio-body">
-            <span class="portfolio-tag">Domestic</span>
-            <h3>Garden &amp; outdoor lighting</h3>
-            <p>Weatherproof outdoor lighting and outbuilding power supply.</p>
+            <h3>Garden shed supply</h3>
+            <p>Power run out to a garden shed with sockets fitted inside, ready for tools and lighting.</p>
           </div>
         </div>
 
       </div>
-      <p class="placeholder-note" style="text-align:center; margin-top: var(--space-3);">Placeholder portfolio &mdash; swap these for real job photos and descriptions.</p>
     </div>
   </section>
 
@@ -825,22 +898,22 @@
       <div class="section-head reveal">
         <span class="eyebrow">Accreditations</span>
         <h2>Fully insured, properly qualified</h2>
-        <p>NAPIT and TrustMark registered, with public liability cover in place &mdash; accreditation logos to follow.</p>
+        <p>NAPIT and TrustMark registered, with &pound;2m public liability cover in place.</p>
       </div>
 
       <div class="accreditations-grid">
         <div class="accreditation-badge reveal">
-          <div class="icon-badge">&#9989;</div>
+          <img class="logo-mark" src="assets/img/napit.png" alt="NAPIT registered" width="200" height="200" loading="lazy">
           <h4>NAPIT registered</h4>
           <p>Member number 83034</p>
         </div>
         <div class="accreditation-badge reveal">
-          <div class="icon-badge">&#128737;</div>
+          <div class="icon-badge"><svg class="i-svg i-svg-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <h4>Fully insured</h4>
           <p>&pound;2,000,000 public liability with Rhino Trade Insurance</p>
         </div>
         <div class="accreditation-badge reveal">
-          <div class="icon-badge">&#127942;</div>
+          <img class="logo-mark" src="assets/img/trustmark.png" alt="TrustMark registered" width="336" height="200" loading="lazy">
           <h4>TrustMark registered</h4>
           <p>Government-endorsed quality mark</p>
         </div>
@@ -912,10 +985,10 @@
 
         <div class="contact-info reveal">
           <h3>Get in touch</h3>
-          <div class="contact-row"><span class="i">&#9742;</span><span>07484 605599</span></div>
-          <div class="contact-row"><span class="i">&#9993;</span><span>tyler@tbelectrical.co.uk</span></div>
-          <div class="contact-row"><span class="i">&#128205;</span><span>Serving Hertfordshire, Bedfordshire and surrounding areas</span></div>
-          <div class="contact-row"><span class="i">&#128337;</span><span>Mon&ndash;Fri, 8am&ndash;6pm &mdash; emergency callouts available <span class="placeholder-note">(placeholder &mdash; confirm hours)</span></span></div>
+          <div class="contact-row"><svg class="i-svg i i-svg-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>07484 605599</span></div>
+          <div class="contact-row"><svg class="i-svg i i-svg-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg><span>tyler@tbelectrical.co.uk</span></div>
+          <div class="contact-row"><svg class="i-svg i i-svg-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Serving Hertfordshire, Bedfordshire and surrounding areas</span></div>
+          <div class="contact-row"><svg class="i-svg i i-svg-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Mon&ndash;Fri, 8am&ndash;6pm &mdash; emergency callouts available <span class="placeholder-note">(placeholder &mdash; confirm hours)</span></span></div>
 
           <h3>Prefer to call?</h3>
           <a class="btn btn-primary btn-block" href="tel:+447484605599" style="margin-top: var(--space-1);">Call 07484 605599</a>
